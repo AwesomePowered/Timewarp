@@ -1,0 +1,7 @@
+name: Timewarp
+version: ${project.version}
+main: net.awesomepowered.timewarp.Timewarp
+authors: [LaxWasHere]
+commands:
+  timewarp:
+    aliases: [tw]
