@@ -17,21 +17,21 @@ public class CommandTimeWarp implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player && args.length >= 1 && sender.hasPermission("timelord.timewarp")) {
+            Player p = (Player) sender;
             if (StringUtils.isNumeric(args[0])) {
-                if (timewarp.getMultiverse().containsKey(((Player) sender).getWorld()))  {
-                    timewarp.getMultiverse().get(((Player) sender).getWorld()).setDilation(Integer.valueOf(args[0]));
+                if (timewarp.getMultiverse().containsKey(p.getWorld()))  {
+                    timewarp.getMultiverse().get(p.getWorld()).setDilation(Integer.valueOf(args[0]));
                 } else {
-                    Gravity gravity = new Gravity(((Player) sender).getWorld(), Integer.valueOf(args[0]));
+                    Gravity gravity = new Gravity(p.getWorld(), Integer.valueOf(args[0]));
                     gravity.warpSpacetime();
-                    timewarp.getMultiverse().put(((Player) sender).getWorld(), gravity);
+                    timewarp.getMultiverse().put(p.getWorld(), gravity);
                 }
             }
             if (args[0].equalsIgnoreCase("mode")) {
-                if (timewarp.getMultiverse().containsKey(((Player) sender).getWorld())) {
-                    timewarp.getMultiverse().get(((Player) sender).getWorld()).changeMode();
+                if (timewarp.getMultiverse().containsKey(p.getWorld())) {
+                    timewarp.getMultiverse().get(p.getWorld()).changeMode();
                 }
             }
-
         }
         return false;
     }

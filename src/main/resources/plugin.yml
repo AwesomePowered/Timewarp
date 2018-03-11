@@ -2,6 +2,7 @@ name: Timewarp
 version: ${project.version}
 main: net.awesomepowered.timewarp.Timewarp
 authors: [LaxWasHere]
+load: POSTWORLD
 commands:
   timewarp:
     aliases: [tw]
